@@ -1,6 +1,6 @@
-import 'package:my_alarm/hand_hour.dart';
-import 'package:my_alarm/hand_minute.dart';
-import 'package:my_alarm/hand_second.dart';
+import 'package:my_alarm/clock/hand_hour.dart';
+import 'package:my_alarm/clock/hand_minute.dart';
+import 'package:my_alarm/clock/hand_second.dart';
 import 'package:flutter/material.dart';
 
 

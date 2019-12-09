@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_alarm/clock.dart';
+import 'package:my_alarm/clock/clock.dart';
 
 void main() => runApp(new MyApp());
 
