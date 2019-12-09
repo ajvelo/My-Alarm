@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_alarm/clock.dart';
-import 'package:my_alarm/clock_text.dart';
-
 
 void main() => runApp(new MyApp());
 
@@ -33,10 +31,7 @@ class AppClock extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 
-            new Clock(
-                circleColor: Colors.black,
-                clockText: ClockText.arabic,
-            ),
+            new Clock(),
           ],
         ),
       ),

@@ -4,6 +4,9 @@ import 'package:my_alarm/clock_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_alarm/clock_face.dart';
 
+import 'clock_dial_painter.dart';
+import 'clock_hands.dart';
+
 typedef TimeProducer = DateTime Function();
 
 class Clock extends StatefulWidget {
@@ -13,7 +16,7 @@ class Clock extends StatefulWidget {
   final TimeProducer getCurrentTime;
   final Duration updateDuration;
 
-  Clock({this.circleColor = Colors.black,
+  Clock({this.circleColor = const Color(0xfffe1ecf7),
          this.clockText = ClockText.arabic,
          this.getCurrentTime = getSystemTime,
          this.updateDuration = const Duration(seconds: 1)});
@@ -74,11 +77,22 @@ class _Clock extends State<Clock> {
         ],
       ),
 
-      child: new ClockFace(
-          clockText : widget.clockText,
-          dateTime: dateTime,
-      ),
-
+      child: Stack(
+        children: <Widget>[
+          new ClockFace(
+            clockText: widget.clockText,
+            dateTime: dateTime,
+          ),
+          Container(
+            padding: EdgeInsets.all(25.0),
+            width: double.infinity,
+            child: new CustomPaint(
+              painter: new ClockDialPainter(clockText: widget.clockText),
+            ),
+          ),
+          new ClockHands(dateTime:dateTime),
+        ],
+      )
     );
   }
 }
