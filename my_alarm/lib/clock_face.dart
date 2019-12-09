@@ -7,9 +7,8 @@ class ClockFace extends StatelessWidget{
 
   final DateTime dateTime;
   final ClockText clockText;
-  final bool showHourHandleHeartShape;
 
-  ClockFace({this.clockText = ClockText.arabic, this.showHourHandleHeartShape = false, this.dateTime});
+  ClockFace({this.clockText = ClockText.arabic, this.dateTime});
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +35,7 @@ class ClockFace extends StatelessWidget{
                 ),
               ),
 
-
-              //centerpoint
-              new Center(
-                child: new Container(
-                  width: 15.0,
-                  height: 15.0,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-
-
-              new ClockHands(dateTime:dateTime, showHourHandleHeartShape: showHourHandleHeartShape),
+              new ClockHands(dateTime:dateTime),
 
             ],
           ),

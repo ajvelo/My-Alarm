@@ -35,10 +35,7 @@ class AppClock extends StatelessWidget{
 
             new Clock(
                 circleColor: Colors.black,
-                showBellsAndLegs: false,
-                bellColor: Colors.green,
                 clockText: ClockText.arabic,
-                showHourHandleHeartShape: false,
             ),
           ],
         ),
