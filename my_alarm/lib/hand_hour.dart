@@ -33,6 +33,7 @@ class HourHandPainter extends CustomPainter{
 
     path.moveTo(0.0, -radius * 0.5);
     path.lineTo(0.0, radius * 0.1);
+    path.close();
 
     canvas.drawPath(path, hourHandPaint);
     canvas.drawShadow(path, Colors.black, 2.0, false);
