@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_alarm/screens/first_screen.dart';
+import 'package:my_alarm/screens/second_screen.dart';
 
 void main() => runApp(new MyApp());
 
@@ -89,7 +90,7 @@ class AppClock extends StatelessWidget{
           body: TabBarView(
             children: <Widget>[
               Center(child: FirstTab()),
-              Text('Second Screen'),
+              Center(child: SecondTab()),
               Text('Third Screen')
             ],
           ),
