@@ -60,6 +60,44 @@ class SecondTab extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              Container(
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Color(0xfff0f5fb),
+                  border: Border.all(
+                    width: 8,
+                    color: Color(0xffd3e1ed),
+                  ),
+                  borderRadius: BorderRadius.circular(3)
+                ),
+                padding: EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "THIS WEEK",
+                      style: TextStyle(
+                        fontSize: _smallFontSize,
+                        fontWeight: _smallFontWeight,
+                        letterSpacing: _smallFontSpacing,
+                        color: _fontColor
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      height: 120,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      width: double.infinity,
+                      child: CustomPaint(
+                        foregroundPainter: GraphPainter(),
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),
@@ -78,6 +116,56 @@ class SecondTab extends StatelessWidget {
       ),
     );
   }
+}
+
+class GraphPainter extends CustomPainter {
+
+  Paint trackBarPaint = Paint()
+  ..color = Color(0xff818aab)
+  ..style = PaintingStyle.stroke
+  ..strokeCap = StrokeCap.round
+  ..strokeWidth = 12;
+
+  Paint trackPaint = Paint()
+    ..color = Color(0xffdee6f1)
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.round
+    ..strokeWidth = 12;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path trackPath = Path();
+    Path trackBarPath = Path();
+
+    List val = [
+      size.height * 0.8,
+      size.height * 0.5,
+      size.height * 0.9,
+      size.height * 0.8,
+      size.height * 0.5,
+    ];
+
+    double origin = 8;
+    
+    for (int i =0; i < val.length; i++) {
+      trackPath.moveTo(origin, size.height);
+      trackPath.lineTo(origin, 0);
+
+      trackBarPath.moveTo(origin, size.height);
+      trackBarPath.lineTo(origin, val[i]);
+
+      origin = origin + size.width * 0.22;
+    }
+
+    canvas.drawPath(trackPath, trackPaint);
+    canvas.drawPath(trackBarPath, trackBarPaint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
+
 }
 
 class RecordItem extends StatelessWidget {
