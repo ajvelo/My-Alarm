@@ -6,15 +6,12 @@ class FirstTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        SizedBox(
-          height: 85,
-        ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 40.0),
           child: Clock()
         ),
         SizedBox(
-          height: 85,
+          height: 45,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
